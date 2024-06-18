@@ -36,10 +36,11 @@ window.RevealTTS = function () {
       tts.Voices = tts.Synth.getVoices(); // get a list of available voices.
       tts.DvIndex = options.dvIndex || 0; //Used to set the default voice index for Chrome or FF on the users platform. 
       tts.DvRate = options.dvRate || 0.85; // used to set speech rate between 0 and 2, 1 = 'normal'- there are other seemingly optional parameters like pitch, language, volume.
-      tts.On = options.ttsOn || true; //Set to false to prevent tts production.
-      tts.Cancel = options.cancel || true; // Set to true if you want reading to stop with a slide change. Otherwise, all readable text is queued for speech output.
-      tts.readFrags = options.readFrags || true; //Set to true to read fragment text content as it appears.
-      tts.readNotes = options.readNotes || true; //set to true to read text content of any <aside class="notes">text content</aside> tag in a slide section
+      tts.On = options.ttsOn ? options.ttsOn : false; //Set to false to prevent tts production.
+      tts.Cancel = options.cancel ? options.cancel : false; // Set to true if you want reading to stop with a slide change. Otherwise, all readable text is queued for speech output.
+      tts.readVisElmts = options.readVisElmts ? options.readVisElmts : false; //Set to true to read visible text content of slide elements.
+      tts.readFrags = options.readFrags ? options.readFrags : false; //Set to true to read fragment text content as it appears.
+      tts.readNotes = options.readNotes ? options.readNotes : false; //set to true to read text content of any <aside class="notes">text content</aside> tag in a slide section
 
       tts.ReadText = function (txt) {
         // Use tts to read text. A new speech synthesis utterance instance is required for each tts output for FF.
@@ -89,12 +90,12 @@ window.RevealTTS = function () {
       };
 
 
-      for (var ix = 0; ix < tts.Voices.length; ix++) {
-        //find the default voice-- needed for FF, in Chrome voices[0] works as the default.
-        if (tts.Voices[ix].default) {
-          tts.DvIndex = ix;
-        }
-      };
+      // for (var ix = 0; ix < tts.Voices.length; ix++) {
+      //   //find the default voice-- needed for FF, in Chrome voices[0] works as the default.
+      //   if (tts.Voices[ix].default) {
+      //     tts.DvIndex = ix;
+      //   }
+      // };
 
       deck.on('slidechanged', function (event) {
         var thisSlide = deck.getCurrentSlide();
@@ -102,8 +103,19 @@ window.RevealTTS = function () {
         // Read the innerText for the listed elements of current slide after waiting 1 second to allow transitions to conclude.
         // The list of elements is read in the order shown. You can use other selectors like a ".readMe" class to simplify things.
         if (tts.On) {
-          setTimeout(function () { tts.ReadVisElmts(thisSlide, "h1", "h2", "h3", "p", "li"); }, 1000);
-          if (tts.readNotes) setTimeout(function () { tts.ReadAnyElmts(thisSlide, ".notes"); }, 1000); // Then, conditionally, read hidden notes class.
+          if (tts.readVisElmts) {
+            setTimeout(
+              function () {
+                tts.ReadVisElmts(thisSlide, "h1", "h2", "h3", "li", "p:not(aside p):not(.footer)", "footer p");
+              }, 1000
+            );
+          }
+          if (tts.readNotes) {
+            setTimeout(
+              function () {
+                tts.ReadAnyElmts(thisSlide, ".notes p");
+              }, 1000); 
+          }
         }
       });
 

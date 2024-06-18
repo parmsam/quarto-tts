@@ -32,17 +32,18 @@ You can change the default options by adding the following to the YAML header in
 title: My Presentation
 format:
   revealjs:
-    flashcards: 
+    tts: 
       cancelKey: "q" # Set to true if you want reading to stop with a slide change. Otherwise, all readable text is queued for speech output
       onOffKey: "t" # Set to false to prevent tts production
       dvIndex: 0 # Set the default tts voice for Chrome or FF on the user's platform
       dvRate: 0.85 # Set speech rate between 0 and 2, 1 = 'normal'- there are other seemingly optional parameters like pitch, language, volume
       ttsOn: true # Set to false to prevent tts production.
       cancel: true # Set to true if you want reading to stop with a slide change; otherwise, all readable text is queued for speech output
-      readFrags: true # Set to true to read fragment text content as it appears
-      readNotes: true # Set to true to read text content of any <aside class="notes">text content</aside> tag in a slide section
+      readVisElmts: true # Set to true to read visible elements on a slide
+      readFrags: false # Set to true to read fragment text content as it appears
+      readNotes: false # Set to true to read text content of any <aside class="notes">text content</aside> tag in a slide section
 revealjs-plugins:
-  - flashcards
+  - tts
 ```
 
 ## Example
