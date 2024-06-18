@@ -5,7 +5,7 @@ format:
     tts: 
       cancelKey: "q"
       onOffKey: "t"
-      dvIndex: 0
+      dvIndex: 4
       dvRate: 0.85
       ttsOn: true
       cancel: true
