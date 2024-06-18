@@ -1,7 +1,17 @@
 ---
 title: "Text to Speech (TTS) Example"
 format:
-  revealjs: default
+  revealjs:
+    tts: 
+      cancelKey: "q"
+      onOffKey: "t"
+      dvIndex: 0
+      dvRate: 0.85
+      ttsOn: true
+      cancel: true
+      readVisElmts: true
+      readFrags: false
+      readNotes: true
 revealjs-plugins:
   - tts
 ---
@@ -39,8 +49,13 @@ You can toggle on/off the TTS plugin by pressing `t`.
 You can update the default settings for things like the speech rate, tts voice, and other stuff in the YAML header of your Quarto file.
 :::
 
-## Sleep
+# Sleep
 
 - Get in bed
 - Count sheep
 - Dream about a TTS bot that read slides describing his day
+
+::: notes
+Oh you can also have speaker notes read to you if you want.
+:::
+

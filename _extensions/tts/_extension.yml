@@ -15,5 +15,6 @@ contributes:
           dvRate: 0.85
           ttsOn: true
           cancel: true
-          readFrags: true
-          readNotes: true
+          readVisElmts: true
+          readFrags: false
+          readNotes: false
