@@ -1,0 +1,46 @@
+---
+title: "Text to Speech (TTS) Example"
+format:
+  revealjs: default
+revealjs-plugins:
+  - tts
+---
+
+# Intro
+
+This extension adds text-to-speech capabilities to reveal.js for Quarto. It uses the Web Speech API in your browser to synthesize speech from text. See [the README](README.md) for more info on using the extension. This is an example of how it can be used.
+
+Let's see how Bob's day went in the next few slides.
+
+## Getting up
+
+- Turn off alarm
+- Get out of bed
+
+::: footer
+You can cancel the TTS speech at any time by pressing the `q` key.
+:::
+
+## Breakfast
+
+- Eat eggs
+- Drink coffee
+
+::: footer
+You can toggle on/off the TTS plugin by pressing `t`.
+:::
+
+# Dinner
+
+- Eat spaghetti
+- Drink wine
+
+::: footer
+You can update the default settings for things like the speech rate, tts voice, and other stuff in the YAML header of your Quarto file.
+:::
+
+## Sleep
+
+- Get in bed
+- Count sheep
+- Dream about a TTS bot that read slides describing his day
