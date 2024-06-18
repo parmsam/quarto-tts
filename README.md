@@ -1,6 +1,6 @@
 # TTS Extension For Quarto
 
-The tts Quarto extension provides text to speech functionality for Quarto RevealJS presentations. This extension uses the Web Speech API to provide text to speech functionality. It is a port of the [jamjolu/tts_basics_for_revealjs](https://github.com/jamjolu/tts_basics_for_revealjs) RevealJS plugin over to Quarto. 
+The tts Quarto extension provides text to speech functionality for Quarto RevealJS presentations. This extension uses the Web Speech API to provide text to speech functionality. It is a port of the [jamjolu/tts_basics_for_revealjs](https://github.com/jamjolu/tts_basics_for_revealjs) RevealJS plugin over to Quarto. Credit goes to him for creating the original plugin.
 
 ## Installing
 
