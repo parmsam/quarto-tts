@@ -24,7 +24,7 @@ revealjs-plugins:
   - tts
 ```
 
-By default, the extension will read the slide content on each slide change. You can cancel the reading by pressing the `q` key or toggle the reading on and off by pressing the `t` key. 
+By default, the extension will read the slide content on each slide change. You can cancel the reading by pressing the `q` key or toggle the reading on and off by pressing the `t` key. Click the `p` key to pause or resume the reading.
 
 You can change the default options by adding the following to the YAML header instead. You can choose which type of content to read using the readFrags and readNotes parameters in the YAML header. Ignore the comments in the YAML header below, they are just for explanations. 
 
