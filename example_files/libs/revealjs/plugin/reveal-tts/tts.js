@@ -1,3 +1,10 @@
+/*
+ * This file includes code derived from the Reveal.js library, which is licensed under the MIT License.
+ * Portions of this code are also derived from a third-party repository built on top of Reveal.js.
+ * The original author did not specify a license for these modifications, so it is assumed to fall under
+ * the MIT License.
+ */
+
 window.RevealTTS = function () {
   var keyCodes = {
     backspace: 8, tab: 9, enter: 13, shift: 16, ctrl: 17, alt: 18, pausebreak: 19, capslock: 20,
@@ -29,6 +36,9 @@ window.RevealTTS = function () {
 
       settings.onOffKey = options.onOffKey ? options.onOffKey.toLowerCase() : "t";
       settings.onOffKeyCode = keyCodes[settings.onOffKey] || 84;
+
+      settings.playPauseKey = options.playPauseKey ? options.playPauseKey.toLowerCase() : "p";
+      settings.playPauseKeyCode = keyCodes[settings.playPauseKey] || 80;
 
       var tts = {};
       tts.Synth = window.speechSynthesis;
@@ -143,6 +153,20 @@ window.RevealTTS = function () {
           key: settings.cancelKey
         }, () => {
         tts.Synth.cancel() 
+      });
+      // This pauses/resumes speech when the 'P' key is pressed
+      deck.addKeyBinding(
+        {
+          keyCode: settings.playPauseKeyCode,
+          key: settings.playPauseKey
+        }, () => {
+        if (tts.On) {
+          if (tts.Synth.paused) {
+            tts.Synth.resume();
+          } else {
+            tts.Synth.pause();
+          }
+        }
       });
 
     },
