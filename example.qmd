@@ -5,6 +5,7 @@ format:
     tts: 
       cancelKey: "q"
       onOffKey: "t"
+      playPauseKey: "p"
       dvIndex: 4
       dvRate: 0.85
       ttsOn: true
@@ -38,6 +39,15 @@ You can cancel the TTS speech at any time by pressing the `q` key.
 
 ::: footer
 You can toggle on/off the TTS plugin by pressing `t`.
+:::
+
+# Lunch
+
+- Eat sandwich
+- Drink soda
+
+::: footer
+At any time you pause or resume the TTS speech by pressing the `p` key.
 :::
 
 # Dinner

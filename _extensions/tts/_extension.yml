@@ -11,6 +11,7 @@ contributes:
         tts: 
           cancelKey: "q"
           onOffKey: "t"
+          playPauseKey: "p"
           dvIndex: 0
           dvRate: 0.85
           ttsOn: true

@@ -33,8 +33,9 @@ title: My Presentation
 format:
   revealjs:
     tts: 
-      cancelKey: "q" # Set to true if you want reading to stop with a slide change. Otherwise, all readable text is queued for speech output
-      onOffKey: "t" # Set to false to prevent tts production
+      cancelKey: "q" # Set the keyboard key to cancel tts production
+      onOffKey: "t" # Set the keyboard key to toggle tts production on and off
+      playPauseKey: "p" # Set the keyboard key to pause and resume tts production
       dvIndex: 0 # Set the default tts voice for Chrome or FF on the user's platform
       dvRate: 0.85 # Set speech rate between 0 and 2, 1 = 'normal'- there are other seemingly optional parameters like pitch, language, volume
       ttsOn: true # Set to false to prevent tts production.

@@ -37,6 +37,9 @@ window.RevealTTS = function () {
       settings.onOffKey = options.onOffKey ? options.onOffKey.toLowerCase() : "t";
       settings.onOffKeyCode = keyCodes[settings.onOffKey] || 84;
 
+      settings.playPauseKey = options.playPauseKey ? options.playPauseKey.toLowerCase() : "p";
+      settings.playPauseKeyCode = keyCodes[settings.playPauseKey] || 80;
+
       var tts = {};
       tts.Synth = window.speechSynthesis;
       tts.Voices = [];
@@ -150,6 +153,20 @@ window.RevealTTS = function () {
           key: settings.cancelKey
         }, () => {
         tts.Synth.cancel() 
+      });
+      // This pauses/resumes speech when the 'P' key is pressed
+      deck.addKeyBinding(
+        {
+          keyCode: settings.playPauseKeyCode,
+          key: settings.playPauseKey
+        }, () => {
+        if (tts.On) {
+          if (tts.Synth.paused) {
+            tts.Synth.resume();
+          } else {
+            tts.Synth.pause();
+          }
+        }
       });
 
     },
