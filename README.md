@@ -6,7 +6,7 @@ The tts Quarto extension provides text to speech functionality for Quarto Reveal
 
 
 ```bash
-quarto add parmsam/tts
+quarto add parmsam/quarto-tts
 ```
 
 This will install the extension under the `_extensions` subdirectory.
